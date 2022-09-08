@@ -1,0 +1,7 @@
+{
+    "rules": {
+      "no-unused-vars": "error",
+      "semi": [2, "never"],
+      "quotes": ["error","double", "avoid-escape"]
+    }
+  }
