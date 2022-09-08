@@ -29,8 +29,8 @@ const Homepage = () => {
             </Header>
             <Container>
                 <CardContainer>
-                    {data?.map((item) => (
-                        <PokeCard title={item.name} />
+                    {data?.map((item, idx) => (
+                        <PokeCard pokemonId={idx + 1} title={item.name} />
                     ))}
                 </CardContainer>
             </Container>

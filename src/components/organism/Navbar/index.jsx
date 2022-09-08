@@ -6,10 +6,10 @@ import { SearchField } from '../../atoms/Field'
 import pokeBall from '../../../assets/pokeball.png'
 
 const Navbar = () => {
-    const [search, setSearch] = useState("")
+    const [query, setQuery] = useState("")
 
     const handleSearch = (event) => {
-        setSearch(event.target.value)
+        setQuery(event.target.value)
     }
 
     const Navbar = styled.div`
@@ -38,7 +38,7 @@ const Navbar = () => {
                     <h1>PokeApp.</h1>
                 </Brand>
                 <div className="navigation">
-                    <SearchField placeholder='Search Pokemon' onChange={handleSearch} name="search" />
+                    <SearchField placeholder='Search Pokemon' name="query" />
                     <Link to="/" style={{ textDecoration: "none" }}>
                         <NavLink>Home</NavLink>
                     </Link>

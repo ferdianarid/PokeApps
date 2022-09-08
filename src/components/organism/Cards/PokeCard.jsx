@@ -1,8 +1,9 @@
 import React from "react";
 import Tilt from "react-parallax-tilt";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const PokeCard = ({ title }) => {
+const PokeCard = ({ title, pokemonId }) => {
     const CardContainer = styled.div`
         width: 100%;
         border-radius: 16px;
@@ -24,15 +25,17 @@ const PokeCard = ({ title }) => {
     `
     return (
         <React.Fragment>
-            <Tilt>
-                <CardContainer className="card-container">
-                    <img src={`https://img.pokemondb.net/artwork/large/${title}.jpg`} width="100%" height="200px" style={{ borderRadius: "8px" }} />
-                    <CardContent>
-                        <CardTitle>{title}</CardTitle>
-                    </CardContent>
-                </CardContainer>
-            </Tilt>
-        </React.Fragment>
+            <Link to={`/pokemon/${pokemonId}`}>
+                <Tilt>
+                    <CardContainer className="card-container">
+                        <img src={`https://img.pokemondb.net/artwork/large/${title}.jpg`} width="100%" height="200px" style={{ borderRadius: "8px" }} />
+                        <CardContent>
+                            <CardTitle>{title}</CardTitle>
+                        </CardContent>
+                    </CardContainer>
+                </Tilt>
+            </Link>
+        </React.Fragment >
     );
 };
 
