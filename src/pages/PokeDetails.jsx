@@ -30,6 +30,34 @@ const PokeDetails = () => {
 
     const currentPath = location.pathname
 
+    const PokeId = styled.h1`
+        font-size: 80px;
+        color: yellow;
+        @media only screen and (max-width: 768px) {
+            font-size: 60px;
+            margin-top: 10px;
+        }
+    `
+
+    const Divider = styled.div`
+        display: flex;
+        flex-direction: row;
+        grid-gap: 20px;
+        @media only screen and (max-width: 768px) {
+            flex-direction: column;
+        }
+    `
+
+    const DoubleColumn = styled.div`
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 12px;
+        @media only screen and (max-width: 768px) {
+            grid-template-columns: auto;
+        }
+    `
+
     return (
         <Header>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -37,11 +65,11 @@ const PokeDetails = () => {
                     <Heading>{capitalizeFirstLetter(details ? details.name : "")}</Heading>
                     <Subheading>Description about pokemon {details ? details.name : ""}</Subheading>
                 </div>
-                <h1 style={{ fontSize: "80px", color: "yellow" }}>#{currentPath.substring(currentPath.lastIndexOf("/") + 1, currentPath.length)}</h1>
+                <PokeId>#{currentPath.substring(currentPath.lastIndexOf("/") + 1, currentPath.length)}</PokeId>
             </div>
             <DetailWrapper>
-                <div style={{ display: "flex", gridGap: "20px" }}>
-                    <img src={`https://img.pokemondb.net/artwork/large/${details.name}.jpg`} width="250px" height="200px" style={{ borderRadius: "8px" }} />
+                <Divider>
+                    <img src={`https://img.pokemondb.net/artwork/large/${details.name}.jpg`} className="img-pokemon" />
                     <AbilityWrapper>
                         <HeadingContent>Abilities</HeadingContent>
                         <div style={{ display: "flex", alignItems: "center", gridGap: "8px" }}>
@@ -49,7 +77,7 @@ const PokeDetails = () => {
                                 <AbilityBadge>{item.ability.name}</AbilityBadge>
                             ))}
                         </div>
-                        <div style={{ width: "100%", display: "grid", gridTemplateColumns: "auto auto", gridGap: "12px" }}>
+                        <DoubleColumn>
                             <PropsWrapper>
                                 <HeadingContent>Information</HeadingContent>
                                 <PropsValue>Height : {details.height}</PropsValue>
@@ -62,7 +90,7 @@ const PokeDetails = () => {
                                 <HeadingContent>Sprites Preview</HeadingContent>
                                 <SpritesPrev sprites={details.sprites} />
                             </PropsWrapper>
-                        </div>
+                        </DoubleColumn>
 
                         <PropsWrapper>
                             <HeadingContent>Skills</HeadingContent>
@@ -78,7 +106,7 @@ const PokeDetails = () => {
                             ))}
                         </PropsWrapper>
                     </AbilityWrapper>
-                </div>
+                </Divider>
             </DetailWrapper>
         </Header >
     )
