@@ -7,4 +7,5 @@ export const AbilityBadge = styled.p`
         border-radius: 8px;
         background: blue;
         height: fit-content;
+        width: fit-content;
     `

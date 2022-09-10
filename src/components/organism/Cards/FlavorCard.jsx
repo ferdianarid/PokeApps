@@ -4,7 +4,7 @@ import { PropsValue } from '../../atoms/Text'
 import { urlFetcher } from '../../../helper/urlFetcher'
 
 const FlavorCard = ({ flavors }) => {
-    const { data, error } = useSWR(() => flavors, urlFetcher)
+    const { data, error } = useSWR(() => flavors, urlFetcher, { refreshInterval: 100 })
     return (
         <React.Fragment>
             <div style={{ display: "grid", gridTemplateColumns: "auto auto", margin: "10px 0" }}>
