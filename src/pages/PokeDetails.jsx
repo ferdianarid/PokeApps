@@ -9,7 +9,7 @@ import { PropsWrapper, AbilityWrapper, DetailWrapper } from '../components/atoms
 import { AbilityBadge } from '../components/atoms/Badge'
 import SpritesPrev from '../components/organism/Cards/SpritesPrev'
 import FlavorCard from '../components/organism/Cards/FlavorCard'
-import { capitalizeFirstLetter } from '../helper/CapitalizeFirstLetter'
+import { capitalizeFirstLetter } from '../helper/capitalizeFirstLetter'
 
 const PokeDetails = () => {
     const location = useLocation()
