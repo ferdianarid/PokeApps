@@ -5,6 +5,9 @@ export const NavigationBar = styled.div`
         color: ${({ theme }) => theme.text};
         grid-gap: 32px;
         align-items: center;
+        @media only screen and (max-width: 768px) {
+            display: none;
+        }
     `
 
 export const Navbar = styled.div`
@@ -16,13 +19,13 @@ export const Navbar = styled.div`
         align-items:center;
         @media only screen and (max-width: 768px) {
             padding: 30px 20px;
+            display:flex;
+            justify-content: space-between;
+            align-items:center;
         }
     `
 export const NavLink = styled.p`
         font-size: 20px;
         font-weight: semibold;
         color: ${({ theme }) => theme.text};
-        @media only screen and (max-width: 768px) {
-            display: none;
-        }
     `

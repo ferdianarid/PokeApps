@@ -32,6 +32,9 @@ const App = () => {
         font-weight: bold;
         background: ${({ theme }) => theme.togglerColor};
         color: ${({ theme }) => theme.text};
+        &:hover {
+            cursor: pointer;
+        }
     `
 
     return (
@@ -39,14 +42,16 @@ const App = () => {
             <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
                 <GlobalStyles />
                 <Navbar>
-                    <Brand>
-                        <img className="pokeball" src={pokeBall} width={48} height={48} alt="pokeball" />
-                        <Heading>PokeApp.</Heading>
-                    </Brand>
+                    <Link to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
+                        <Brand>
+                            <img className="pokeball" src={pokeBall} width={48} height={48} alt="pokeball" />
+                            <Heading>PokeApp.</Heading>
+                        </Brand>
+                    </Link>
                     <Switcher onClick={themeToggler}>
                         {theme === 'dark' ?
-                            <span aria-label="Light mode" role="img">🌞 Light mode</span> :
-                            <span aria-label="Dark mode" role="img">🌜 Dark mode</span>}
+                            <span aria-label="Light mode">🌞 Light mode</span> :
+                            <span aria-label="Dark mode">🌜 Dark mode</span>}
                     </Switcher>
                     <NavigationBar>
                         <SearchField placeholder='Search Pokemon' name="query" />
