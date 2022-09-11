@@ -32,7 +32,7 @@ const PokeDetails = () => {
 
     const PokeId = styled.h1`
         font-size: 80px;
-        color: yellow;
+        color: ${({ theme }) => theme.text};
         @media only screen and (max-width: 768px) {
             font-size: 60px;
             margin-top: 10px;

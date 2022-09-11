@@ -3,10 +3,10 @@ import styled from "styled-components"
 export const SearchField = styled.input`
         border: none;
         padding: 14px 16px;
-        color: #FFF;
         border-radius: 12px;
         font-size: 20px;
-        background: rgb(31, 28, 48);
+        background: ${({ theme }) => theme.searchColor};
+        color: ${({ theme }) => theme.text};
         &:focus {
             outline: none;
         }

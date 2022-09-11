@@ -5,6 +5,7 @@ import axios from 'axios'
 import { Heading, Subheading } from '../components/atoms/Text'
 import { Container, CardContainer } from '../components/atoms/Container'
 import PokeCard from '../components/organism/Cards/PokeCard'
+import Pagination from '../components/organism/Pagination'
 
 const Homepage = () => {
     const fetcher = async (url) => {
@@ -34,6 +35,7 @@ const Homepage = () => {
                     ))}
                 </CardContainer>
             </Container>
+            <Pagination />
         </React.Fragment>
     )
 }

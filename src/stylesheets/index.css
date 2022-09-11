@@ -6,10 +6,6 @@
     font-family: "Metropolis", sans-serif;
 }
 
-body {
-    background-color: rgb(23, 20, 39);
-}
-
 .pokeball {
     animation: loading 3s linear infinite;
 }

@@ -6,7 +6,7 @@ export const PropsWrapper = styled.div`
         flex-direction: column;
         padding: 10px 20px;
         border-radius 12px;
-        background: rgb(31, 28, 48);
+        background: ${({ theme }) => theme.wrapperColor};
     `
 
 export const AbilityWrapper = styled.div`

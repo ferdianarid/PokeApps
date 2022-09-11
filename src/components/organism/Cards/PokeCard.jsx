@@ -8,7 +8,7 @@ const PokeCard = ({ title, pokemonId }) => {
         width: 100%;
         border-radius: 16px;
         padding: 8px 8px 16px 8px;
-        background: rgb(31, 28, 48);
+        background: ${({ theme }) => theme.body};
         &:hover {
             cursor: pointer;
         }
@@ -19,7 +19,7 @@ const PokeCard = ({ title, pokemonId }) => {
     `
     const CardTitle = styled.h1`
         font-size: 24px;
-        color: #FFF;
+        color: ${({ theme }) => theme.text};
         text-transform: capitalize;
 
     `
