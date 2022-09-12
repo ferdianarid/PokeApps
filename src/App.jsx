@@ -21,6 +21,7 @@ import SignUp from './pages/auth/SignUp'
 import { OAuthButton } from './components/atoms/Button/OAuthButton'
 import { Switcher } from './components/atoms/Button/Switcher'
 import { OAuthWrapper } from './components/atoms/Wrapper'
+import Speech from './pages/Speech'
 
 const App = () => {
     const [query, setQuery] = useState("")
@@ -67,6 +68,9 @@ const App = () => {
                             <Link to="/profile" style={{ textDecoration: "none" }}>
                                 <NavLink>Profile</NavLink>
                             </Link>
+                            <Link to="/speech" style={{ textDecoration: "none" }}>
+                                <NavLink>Speech</NavLink>
+                            </Link>
                             <OAuthWrapper>
                                 <Link to="/signin" style={{ textDecoration: "none" }}>
                                     <OAuthButton>Sign in</OAuthButton>
@@ -80,6 +84,7 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<Homepage />} />
                         <Route path="about" element={<About />} />
+                        <Route path="speech" element={<Speech />} />
                         <Route path="pokemon:id" element={<PokeDetails />} />
                         <Route path="signin" element={<SignIn />} />
                         <Route path="signup" element={<SignUp />} />
