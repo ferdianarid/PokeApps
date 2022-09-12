@@ -3,21 +3,98 @@
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    font-family: "Metropolis", sans-serif;
+    font-family: "DM Sans", sans-serif;
+}
+
+@font-face {
+    font-family: 'DM Sans';
+    font-weight: 400;
+    src: local('DM Sans'), url(../assets/fonts/dmsansregular.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'DM Sans';
+    font-weight: 500;
+    src: local('DM Sans'), url(../assets/fonts/dmsanssemibold.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'DM Sans';
+    font-weight: 700;
+    src: local('DM Sans'), url(../assets/fonts/dmsansbold.woff) format('woff');
+}
+
+.poke-img {
+    width: 500px;
+    border-radius: 16px;
+    height: 270px;
+    object-fit: cover;
+}
+
+.raticate {
+    position: absolute;
+    top: 40px;
+    right: 100px;
+}
+
+.bulbasaur {
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+}
+
+.ivysaur {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+}
+
+.pidgeot {
+    position: absolute;
+    top: 70px;
+    left: 100px;
+}
+
+@media screen and (max-width: 768px) {
+    .raticate {
+        width: 60px;
+        top: 0;
+        right: 30px;
+    }
+    .pidgeot {
+        width: 60px;
+        top: -20px;
+        left: 80px;
+    }
+    .bulbasaur {
+        width: 90px;
+        bottom: -50px;
+        right: 50px;
+    }
+    .ivysaur {
+        width: 90px;
+        bottom: -40px;
+        right: 50px;
+    }
+    .poke-img {
+        width: 100%;
+        margin-top: -30px;
+    }
 }
 
 .pokeball {
     animation: loading 3s linear infinite;
 }
 
-@keyframes loading {
+
+/* @keyframes loading {
     0% {
         transform: rotate(0);
     }
     100% {
         transform: rotate(360deg);
     }
-}
+} */
 
 .card-container {
     border: 12px solid transparent;

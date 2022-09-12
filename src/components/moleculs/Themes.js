@@ -1,11 +1,11 @@
 export const lightTheme = {
     body: '#FFF',
-    text: 'rgb(23, 20, 39)',
+    text: '#191a26',
     toggleBorder: '#FFF',
     background: '#FFF',
     searchColor: '#edeff2',
     wrapperColor: '#edeff2',
-    togglerColor: '#edeff2'
+    togglerColor: '#edeff2',
 }
 export const darkTheme = {
     body: 'rgb(23, 20, 39)',

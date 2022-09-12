@@ -9,6 +9,7 @@ import { PropsWrapper, AbilityWrapper, DetailWrapper } from '../components/atoms
 import { AbilityBadge } from '../components/atoms/Badge'
 import SpritesPrev from '../components/organism/Cards/SpritesPrev'
 import FlavorCard from '../components/organism/Cards/FlavorCard'
+import { ValueText } from '../components/atoms/Text'
 import { capitalizeFirstLetter } from '../helper/capitalizeFirstLetter'
 
 const PokeDetails = () => {
@@ -80,10 +81,10 @@ const PokeDetails = () => {
                         <DoubleColumn>
                             <PropsWrapper>
                                 <HeadingContent>Information</HeadingContent>
-                                <PropsValue>Height : {details.height}</PropsValue>
-                                <PropsValue>Weight : {details.weight}</PropsValue>
-                                <PropsValue>Base Experience : {details.base_experience}</PropsValue>
-                                <PropsValue>Species : {capitalizeFirstLetter(details.species?.name)}</PropsValue>
+                                <PropsValue>Height : <ValueText>{details.height}</ValueText></PropsValue>
+                                <PropsValue>Weight : <ValueText>{details.weight}</ValueText></PropsValue>
+                                <PropsValue>Base Experience : <ValueText>{details.base_experience}</ValueText></PropsValue>
+                                <PropsValue>Species : <ValueText>{capitalizeFirstLetter(details.species?.name)}</ValueText></PropsValue>
                             </PropsWrapper>
 
                             <PropsWrapper>
@@ -93,7 +94,7 @@ const PokeDetails = () => {
                         </DoubleColumn>
 
                         <PropsWrapper>
-                            <HeadingContent>Skills</HeadingContent>
+                            <HeadingContent>Skills Effect</HeadingContent>
                             {details.abilities?.map((item) => (
                                 <SkillCard skills={item.ability?.url} />
                             ))}
@@ -108,7 +109,7 @@ const PokeDetails = () => {
                     </AbilityWrapper>
                 </Divider>
             </DetailWrapper>
-        </Header >
+        </Header>
     )
 }
 

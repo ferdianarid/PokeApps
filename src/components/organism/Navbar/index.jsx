@@ -35,7 +35,7 @@ const Navbar = () => {
             <Navbar>
                 <Brand>
                     <img className="pokeball" src={pokeBall} width={48} height={48} alt="pokeball" />
-                    <h1>PokeApp.</h1>
+                    <h1>PokeApps</h1>
                 </Brand>
                 <div className="navigation">
                     <SearchField placeholder='Search Pokemon' name="query" />

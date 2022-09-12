@@ -1,9 +1,15 @@
 import styled from "styled-components"
 
+export const HeroContainer = styled.div`
+    padding: 30px 100px;
+    @media only screen and (max-width: 768px) {
+        padding: 30px 20px;
+    }
+`
 export const Container = styled.div`
-        padding: 30px 100px;
+        padding: 100px 100px;
         @media only screen and (max-width: 768px) {
-            padding: 30px 20px;
+            padding: 100px 20px;
         }
     `
 
@@ -15,4 +21,10 @@ export const CardContainer = styled.div`
             grid-template-columns: auto auto;
             grid-gap: 16px;
         }
-    ` 
+    `
+
+
+export const PageWrapper = styled.div`
+        max-width: 1440px;
+        margin: 0 auto;
+    `

@@ -11,8 +11,8 @@ const SkillCard = ({ skills }) => {
                 item?.language.name === "en").map((skill) => {
                     return (
                         <div style={{ margin: "10px 0" }}>
-                            <PropsValue>Effect : {skill.effect}</PropsValue>
-                            <PropsValue>Short Effect : {skill.short_effect}</PropsValue>
+                            <PropsValue>Pure : {skill.effect}</PropsValue>
+                            <PropsValue>Short : {skill.short_effect}</PropsValue>
                         </div>
                     )
                 }) : "Loading ..."}

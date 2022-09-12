@@ -25,7 +25,7 @@ export const Navbar = styled.div`
         }
     `
 export const NavLink = styled.p`
-        font-size: 20px;
+        font-size: 16px;
         font-weight: semibold;
         color: ${({ theme }) => theme.text};
     `

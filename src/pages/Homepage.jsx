@@ -7,6 +7,8 @@ import { Heading, Subheading } from '../components/atoms/Text'
 import { Container, CardContainer } from '../components/atoms/Container'
 import PokeCard from '../components/organism/Cards/PokeCard'
 import Pagination from '../components/organism/Pagination'
+import { Columns, DoubleColumn } from '../components/atoms/Column'
+import PokemonImage from '../assets/pokemon/pokebackground.webp'
 
 const Homepage = () => {
     const PokemonSectionReff = useRef(null)
@@ -17,29 +19,37 @@ const Homepage = () => {
 
     const { data, error } = useSWR(() => "https://pokeapi.co/api/v2/pokemon", fetcher)
 
-    const Header = styled.div`
-        margin: 80px 0px 20px 0;
-        padding: 0px 100px;
-        @media only screen and (max-width: 768px) {
-            padding: 0 20px;
-        }
+    const SectionHeading = styled.h1`
+        font-size: 45px;
+        line-height: 1.3;
+        color: ${({ theme }) => theme.text};
+        margin-bottom: 24px;
     `
     return (
         <React.Fragment>
             <Hero pokeSection={PokemonSectionReff} />
-            <Header>
-                <Heading ref={PokemonSectionReff}>Pokemon List</Heading>
-                <Subheading>This is pokemon list from pokeapi</Subheading>
-            </Header>
             <Container>
+                <DoubleColumn>
+                    <Columns>
+                        <SectionHeading>Pokemon Slogan for the Franchise.</SectionHeading>
+                        <Subheading>Pokémon, humans, known as Pokémon Trainers, catch and train Pokémon to battle other Pokémon for sport. All media works within the franchise are set in the Pokémon universe. The English slogan for the franchise is "Gotta Catch ‘Em All!</Subheading>
+                    </Columns>
+                    <Columns>
+                        <img src={PokemonImage} className="poke-img" alt="pokemon" />
+                    </Columns>
+                </DoubleColumn>
+            </Container>
+            <Container style={{ marginTop: "-80px" }}>
+                <SectionHeading ref={PokemonSectionReff}>Pokemon List</SectionHeading>
+                <Subheading style={{ marginTop: "-20px" }}>This is pokemon list from pokeapi</Subheading>
                 <CardContainer>
                     {data?.map((item, idx) => (
-                        <PokeCard pokemonId={idx + 1} title={item.name} />
+                        <PokeCard key={idx + 1} pokemonId={idx + 1} title={item.name} />
                     ))}
                 </CardContainer>
             </Container>
             <Pagination />
-        </React.Fragment>
+        </React.Fragment >
     )
 }
 

@@ -4,7 +4,7 @@ export const SearchField = styled.input`
         border: none;
         padding: 14px 16px;
         border-radius: 12px;
-        font-size: 20px;
+        font-size: 14px;
         background: ${({ theme }) => theme.searchColor};
         color: ${({ theme }) => theme.text};
         &:focus {

@@ -1,6 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container } from '../atoms/Container'
+import { HeroContainer } from '../atoms/Container'
+import { FaChevronCircleRight } from 'react-icons/fa'
+import { Subheading } from '../atoms/Text'
+import raticate from '../../assets/pokemon/raticate.png'
+import pidgeot from '../../assets/pokemon/pidgeot.png'
+import bulbasaur from '../../assets/pokemon/bulbasaur.png'
+import ivysaur from '../../assets/pokemon/ivysaur.png'
 
 const HeroHeading = styled.h1`
     font-size: 50px;
@@ -13,6 +19,7 @@ const HeroHeight = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 `
 
 const ButtonAction = styled.button`
@@ -20,12 +27,16 @@ const ButtonAction = styled.button`
     font-weight: bold;
     padding: 20px 40px;
     border: none;
-    background: #0EA5E9;
+    display: flex;
+    align-items: center;
+    background: #4f5eff;
     color: #FFF;
     border-radius: 16px;
-    margin: 20px 0 0 0;
+    margin: 20px auto;
+    transition: .2s ease-out;
     &:hover {
         cursor: pointer;
+        background: #4150f2;
     }
 `
 
@@ -35,12 +46,11 @@ const HeadingWrapper = styled.div`
     text-align: center;
 `
 
-const Subheading = styled.p`
+const HighlightText = styled.span`
+    padding 6px 12px;
+    border-radius: 12px;
+    background: ${({ theme }) => theme.togglerColor};
     color: ${({ theme }) => theme.text};
-    font-size: 14px;
-    line-height: 1.5;
-    max-width: 700px;
-    margin: 20px 0;
 `
 
 const Hero = ({ pokeSection }) => {
@@ -53,15 +63,20 @@ const Hero = ({ pokeSection }) => {
     }
     return (
         <React.Fragment>
-            <Container>
+            <HeroContainer>
                 <HeroHeight>
                     <HeadingWrapper>
-                        <HeroHeading>Find and explore your favourite Pokemon</HeroHeading>
-                        <Subheading>Pokémon an abbreviation for Pocket Monsters in Japan is a Japanese media franchise managed by The Pokémon Company a company founded by Nintendo, Game Freak, and Creatures. The franchise was created by Satoshi Tajiri in 1996 and is centered on fictional creatures called "Pokémon"</Subheading>
-                        <ButtonAction onClick={() => PokemonReff(pokeSection.current)}>Get started</ButtonAction>
+                        <HeroHeading>Find and explore your favourite <HighlightText>Pokemon</HighlightText></HeroHeading>
+                        <Subheading>Pokémon an abbreviation for Pocket Monsters in Japan is a Japanese media franchise managed by The Pokémon Company a company founded by Nintendo, Game Freak, and Creatures.</Subheading>
+                        <ButtonAction onClick={() => PokemonReff(pokeSection.current)}>See Pokemon <FaChevronCircleRight size={24} style={{ marginLeft: "10px" }} /></ButtonAction>
+                        {/* Image */}
+                        <img src={raticate} className="raticate" width={120} alt="raticate" />
+                        <img src={pidgeot} className="pidgeot" width={120} alt="pidgeot" />
+                        <img src={bulbasaur} className="bulbasaur" width={120} alt="bulbasaur" />
+                        <img src={ivysaur} className="ivysaur" width={120} alt="ivysaur" />
                     </HeadingWrapper>
                 </HeroHeight>
-            </Container>
+            </HeroContainer>
         </React.Fragment>
     )
 }
