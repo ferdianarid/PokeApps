@@ -9,6 +9,7 @@ import PokeCard from '../components/organism/Cards/PokeCard'
 import Pagination from '../components/organism/Pagination'
 import { Columns, DoubleColumn } from '../components/atoms/Column'
 import PokemonImage from '../assets/pokemon/pokebackground.webp'
+import { ButtonAction } from '../components/atoms/Button/ButtonAction'
 
 const Homepage = () => {
     const PokemonSectionReff = useRef(null)
@@ -24,6 +25,17 @@ const Homepage = () => {
         line-height: 1.3;
         color: ${({ theme }) => theme.text};
         margin-bottom: 24px;
+    `
+
+    const FeedbackSection = styled.div`
+        width: 100%;
+        padding: 50px;
+        border-radius: 24px;
+        background: ${({ theme }) => theme.togglerColor};
+        @media only screen and (max-width: 768px) {
+            padding: 50px 20px;
+            margin-top: -100px;
+        }
     `
     return (
         <React.Fragment>
@@ -48,8 +60,17 @@ const Homepage = () => {
                     ))}
                 </CardContainer>
             </Container>
+            <Container>
+                <FeedbackSection>
+                    <div className="text-center">
+                        <SectionHeading>Send your Feedback in here</SectionHeading>
+                        <Subheading style={{ margin: "auto", marginTop: "-20px" }}>Your Feedback is very important for growth more better</Subheading>
+                        <ButtonAction style={{ marginTop: "50px" }}>Give Feedback</ButtonAction>
+                    </div>
+                </FeedbackSection>
+            </Container>
             <Pagination />
-        </React.Fragment >
+        </React.Fragment>
     )
 }
 
