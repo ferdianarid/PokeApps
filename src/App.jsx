@@ -82,7 +82,7 @@ const App = () => {
                         </NavigationBar>
                     </Navbar>
                     <Routes>
-                        <Route index element={<Homepage />} />
+                        <Route path="/" element={<Homepage />} />
                         <Route path="about" element={<About />} />
                         <Route path="speech" element={<Speech />} />
                         <Route path="pokemon/:id" element={<PokeDetails />} />
