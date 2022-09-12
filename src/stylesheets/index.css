@@ -28,6 +28,11 @@
         text-align: center;
     }
     
+    .linebreak {
+        border-bottom: 1px solid rgb(33, 31, 57);
+        margin: 32px 0 28px;
+    }
+    
     .poke-img {
         width: 500px;
         border-radius: 16px;

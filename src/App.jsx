@@ -1,22 +1,26 @@
 import React, { useState } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
-import styled, { ThemeProvider } from 'styled-components'
-import Homepage from './pages/Homepage'
-import GenericNotFound from './pages/GenericNotFound'
+import { ThemeProvider } from 'styled-components'
 import About from './pages/About'
+import Homepage from './pages/Homepage'
+import PokeDetails from './pages/PokeDetails'
+import GenericNotFound from './pages/GenericNotFound'
 import { Brand } from './components/atoms/Brand'
 import { SearchField } from './components/atoms/Field'
 import { Navbar, NavLink, NavigationBar } from './components/moleculs/Navigation'
-import PokeDetails from './pages/PokeDetails'
 import { lightTheme, darkTheme } from './components/moleculs/Themes'
 import { GlobalStyles } from './components/moleculs/GlobalStyles'
-import pokeBall from './assets/pokeball.png'
 import { Heading } from './components/atoms/Text'
+import pokeBall from './assets/pokeball.png'
 import Footer from './components/organism/Footer'
 import Moon from './assets/icons/moon.svg'
 import Sun from './assets/icons/sun.svg'
-import { FaGithub } from 'react-icons/fa'
 import PageLayouts from './layouts/PageLayouts'
+import SignIn from './pages/auth/SignIn'
+import SignUp from './pages/auth/SignUp'
+import { OAuthButton } from './components/atoms/Button/OAuthButton'
+import { Switcher } from './components/atoms/Button/Switcher'
+import { OAuthWrapper } from './components/atoms/Wrapper'
 
 const App = () => {
     const [query, setQuery] = useState("")
@@ -31,39 +35,6 @@ const App = () => {
         theme === 'light' ? setTheme('dark') : setTheme('light')
     }
 
-    const Switcher = styled.button`
-        border: none;
-        padding: 12px 16px;
-        border-radius: 30px;
-        font-weight: bold;
-        background: ${({ theme }) => theme.togglerColor};
-        color: ${({ theme }) => theme.text};
-        &:hover {
-            cursor: pointer;
-        }
-    `
-
-    const OAuthWrapper = styled.div`
-        display: flex;
-        align-items: center;
-        grid-gap: 12px;
-    `
-
-    const OAuthButton = styled.div`
-        border: none;
-        display: flex;
-        align-items: center;
-        grid-gap: 8px;
-        border-radius: 12px;
-        padding: 12px 16px;
-        font-weight: bold;
-        background: ${({ theme }) => theme.togglerColor};
-        color: ${({ theme }) => theme.text};
-        &:hover {
-            cursor: pointer;
-        }
-    `
-
     return (
         <React.Fragment>
             <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
@@ -73,7 +44,7 @@ const App = () => {
                         <Link to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
                             <Brand>
                                 <img className="pokeball" src={pokeBall} width={36} height={36} alt="pokeball" />
-                                <Heading>PokeApps</Heading>
+                                <Heading>POKEAPPS</Heading>
                             </Brand>
                         </Link>
                         <Switcher onClick={themeToggler}>
@@ -100,16 +71,18 @@ const App = () => {
                                 <Link to="/signin" style={{ textDecoration: "none" }}>
                                     <OAuthButton>Sign in</OAuthButton>
                                 </Link>
-                                <Link to="/github" style={{ textDecoration: "none" }}>
-                                    <OAuthButton><FaGithub size={18} /> Sign up with Github</OAuthButton>
+                                <Link to="/signup" style={{ textDecoration: "none" }}>
+                                    <OAuthButton>Sign Up</OAuthButton>
                                 </Link>
                             </OAuthWrapper>
                         </NavigationBar>
                     </Navbar>
                     <Routes>
                         <Route path="/" element={<Homepage />} />
-                        <Route path="/pokemon/:id" element={<PokeDetails />} />
-                        <Route path="/about" element={<About />} />
+                        <Route path="about" element={<About />} />
+                        <Route path="pokemon:id" element={<PokeDetails />} />
+                        <Route path="signin" element={<SignIn />} />
+                        <Route path="signup" element={<SignUp />} />
                         <Route path="*" element={<GenericNotFound />} />
                     </Routes>
                     <Footer />

@@ -19,9 +19,13 @@ const PokeCard = ({ title, pokemonId }) => {
     `
     const CardTitle = styled.h1`
         font-size: 24px;
+        width: fit-content;
+        margin: 0 auto;
+        border-radius: 25px;
+        padding: 6px 18px;
+        background: ${({ theme }) => theme.togglerColor};
         color: ${({ theme }) => theme.text};
         text-transform: capitalize;
-
     `
     return (
         <React.Fragment>

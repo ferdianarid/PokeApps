@@ -27,7 +27,7 @@ const GenericNotFound = () => {
                 <HeroNotFoundWrapper>
                     <img src={Pokemon} width={200} height={200} alt="pokemon" style={{ marginBottom: "20px" }} />
                     <HeadingNotFound>Oops, Page Not Found</HeadingNotFound>
-                    <Subheading>Page you visit is not found. Please wait we redirecting automatically to homepage</Subheading>
+                    <Subheading style={{ margin: "0 auto", marginTop: "5px", marginBottom: "30px" }}>Page you visit is not found. Please wait we redirecting automatically to homepage</Subheading>
                 </HeroNotFoundWrapper>
             </Container>
         </React.Fragment>

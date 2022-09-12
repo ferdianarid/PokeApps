@@ -18,3 +18,9 @@ export const AbilityWrapper = styled.div`
 export const DetailWrapper = styled.div`
         padding: 40px 0px;
     `
+
+export const OAuthWrapper = styled.div`
+        display: flex;
+        align-items: center;
+        grid-gap: 12px;
+    `
