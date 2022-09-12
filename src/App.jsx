@@ -82,12 +82,12 @@ const App = () => {
                         </NavigationBar>
                     </Navbar>
                     <Routes>
-                        <Route path="/" element={<Homepage />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="/speech" element={<Speech />} />
-                        <Route path="/pokemon/:id" element={<PokeDetails />} />
-                        <Route path="/signin" element={<SignIn />} />
-                        <Route path="/signup" element={<SignUp />} />
+                        <Route index element={<Homepage />} />
+                        <Route path="about" element={<About />} />
+                        <Route path="speech" element={<Speech />} />
+                        <Route path="pokemon/:id" element={<PokeDetails />} />
+                        <Route path="signin" element={<SignIn />} />
+                        <Route path="signup" element={<SignUp />} />
                         <Route path="*" element={<GenericNotFound />} />
                     </Routes>
                     <Footer />
