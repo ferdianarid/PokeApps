@@ -40,7 +40,7 @@ const App = () => {
 
     const CollapseButton = styled.div`
         padding: 8px;
-        background: ${({ theme }) => theme.togglerColor};
+        background: ${({ theme }) => theme.body};
         color: ${({ theme }) => theme.text};
         border-radius: 8px;
         display: flex;

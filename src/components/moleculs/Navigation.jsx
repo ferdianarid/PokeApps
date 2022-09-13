@@ -15,7 +15,7 @@ export const MobileNav = styled.div`
         color: ${({ theme }) => theme.text};
         grid-gap: 32px;
         padding: 32px 40px;
-        width: 92%;
+        width: 90%;
         @media only screen and (max-width: 768px) {
             position: absolute;
             z-index: 50;
