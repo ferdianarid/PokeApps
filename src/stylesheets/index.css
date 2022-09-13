@@ -37,6 +37,10 @@
         display: block;
     }
     
+    .hamburger {
+        display: none;
+    }
+    
     .poke-img {
         width: 500px;
         border-radius: 16px;
@@ -92,6 +96,9 @@
         .poke-img {
             width: 100%;
             margin-top: -30px;
+        }
+        .hamburger {
+            display: block
         }
     }
     

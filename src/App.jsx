@@ -69,7 +69,9 @@ const App = () => {
                                     <img src={Moon} width={20} style={{ marginRight: "6px" }} height={20} alt="moon" />
                                     Dark mode</span>}
                         </Switcher>
-                        {open ? <CollapseButton onClick={() => setOpen(false)}><FaTimes size={24} style={{ color: "black" }} /></CollapseButton> : <CollapseButton onClick={() => setOpen(true)}><FaBars size={24} style={{ color: "black" }} /></CollapseButton>}
+                        <div className="hamburger">
+                            {open ? <CollapseButton onClick={() => setOpen(false)}><FaTimes size={24} style={{ color: "black" }} /></CollapseButton> : <CollapseButton onClick={() => setOpen(true)}><FaBars size={24} style={{ color: "black" }} /></CollapseButton>}
+                        </div>
                         <NavigationBar>
                             <SearchField placeholder='Search Pokemon' name="query" />
                             <Link to="/" style={{ textDecoration: "none" }}>
