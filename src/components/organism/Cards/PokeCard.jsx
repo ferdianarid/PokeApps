@@ -32,7 +32,7 @@ const PokeCard = ({ title, pokemonId }) => {
             <Link to={`/pokemon/${pokemonId}`} style={{ textDecoration: "none" }}>
                 <Tilt>
                     <CardContainer className="card-container">
-                        <img src={`https://img.pokemondb.net/artwork/large/${title}.jpg`} width="100%" height="250px" style={{ borderRadius: "8px", objectFit: "cover" }} />
+                        <img src={`https://img.pokemondb.net/artwork/large/${title}.jpg`} width="100%" height="200px" style={{ borderRadius: "8px", objectFit: "cover" }} />
                         <CardContent>
                             <CardTitle>{title}</CardTitle>
                         </CardContent>

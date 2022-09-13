@@ -16,7 +16,7 @@ export const Container = styled.div`
 export const CardContainer = styled.div`
         display: grid;
         grid-template-columns: auto auto auto auto;
-        grid-gap: 24px;
+        grid-gap: 12px;
         @media only screen and (max-width: 768px) {
             grid-template-columns: auto auto;
             grid-gap: 0px;
