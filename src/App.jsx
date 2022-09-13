@@ -26,7 +26,7 @@ import { FaBars, FaTimes } from 'react-icons/fa'
 
 const App = () => {
     const [query, setQuery] = useState("")
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(false)
 
     const handleSearch = (event) => {
         setQuery(event.target.value)
