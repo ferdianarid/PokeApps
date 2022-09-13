@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Routes, Route, Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import styled, { ThemeProvider } from 'styled-components'
 import About from './pages/About'
 import Homepage from './pages/Homepage'
@@ -28,6 +28,8 @@ const App = () => {
     const [query, setQuery] = useState("")
     const [open, setOpen] = useState(false)
 
+    const location = useLocation()
+
     const handleSearch = (event) => {
         setQuery(event.target.value)
     }
@@ -47,6 +49,10 @@ const App = () => {
         justify-content: center;
         align-items: center;
     `
+
+    useEffect(() => {
+        setOpen(false)
+    }, [location])
 
     return (
         <React.Fragment>
