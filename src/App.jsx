@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
-import { ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import About from './pages/About'
 import Homepage from './pages/Homepage'
 import PokeDetails from './pages/PokeDetails'
 import GenericNotFound from './pages/GenericNotFound'
 import { Brand } from './components/atoms/Brand'
 import { SearchField } from './components/atoms/Field'
-import { Navbar, NavLink, NavigationBar } from './components/moleculs/Navigation'
+import { Navbar, NavLink, NavigationBar, MobileNav } from './components/moleculs/Navigation'
 import { lightTheme, darkTheme } from './components/moleculs/Themes'
 import { GlobalStyles } from './components/moleculs/GlobalStyles'
 import { Heading } from './components/atoms/Text'
@@ -22,9 +22,11 @@ import { OAuthButton } from './components/atoms/Button/OAuthButton'
 import { Switcher } from './components/atoms/Button/Switcher'
 import { OAuthWrapper } from './components/atoms/Wrapper'
 import Speech from './pages/Speech'
+import { FaBars, FaTimes } from 'react-icons/fa'
 
 const App = () => {
     const [query, setQuery] = useState("")
+    const [open, setOpen] = useState(true)
 
     const handleSearch = (event) => {
         setQuery(event.target.value)
@@ -35,6 +37,16 @@ const App = () => {
     const themeToggler = () => {
         theme === 'light' ? setTheme('dark') : setTheme('light')
     }
+
+    const CollapseButton = styled.div`
+        padding: 8px;
+        background: ${({ theme }) => theme.togglerColor};
+        color: ${({ theme }) => theme.text};
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    `
 
     return (
         <React.Fragment>
@@ -57,6 +69,7 @@ const App = () => {
                                     <img src={Moon} width={20} style={{ marginRight: "6px" }} height={20} alt="moon" />
                                     Dark mode</span>}
                         </Switcher>
+                        {open ? <CollapseButton onClick={() => setOpen(false)}><FaTimes size={24} style={{ color: "black" }} /></CollapseButton> : <CollapseButton onClick={() => setOpen(true)}><FaBars size={24} style={{ color: "black" }} /></CollapseButton>}
                         <NavigationBar>
                             <SearchField placeholder='Search Pokemon' name="query" />
                             <Link to="/" style={{ textDecoration: "none" }}>
@@ -80,6 +93,30 @@ const App = () => {
                                 </Link>
                             </OAuthWrapper>
                         </NavigationBar>
+
+                        {open ? <MobileNav className='mobile-nav'>
+                            <SearchField placeholder='Search Pokemon' name="query" />
+                            <Link to="/" style={{ textDecoration: "none" }}>
+                                <NavLink>Home</NavLink>
+                            </Link>
+                            <Link to="/about" style={{ textDecoration: "none" }}>
+                                <NavLink>About</NavLink>
+                            </Link>
+                            <Link to="/profile" style={{ textDecoration: "none" }}>
+                                <NavLink>Profile</NavLink>
+                            </Link>
+                            <Link to="/speech" style={{ textDecoration: "none" }}>
+                                <NavLink>Speech</NavLink>
+                            </Link>
+                            <OAuthWrapper>
+                                <Link to="/signin" style={{ textDecoration: "none" }}>
+                                    <OAuthButton>Sign in</OAuthButton>
+                                </Link>
+                                <Link to="/signup" style={{ textDecoration: "none" }}>
+                                    <OAuthButton>Sign Up</OAuthButton>
+                                </Link>
+                            </OAuthWrapper>
+                        </MobileNav> : ""}
                     </Navbar>
                     <Routes>
                         <Route path="/" element={<Homepage />} />
@@ -93,7 +130,7 @@ const App = () => {
                     <Footer />
                 </PageLayouts>
             </ThemeProvider>
-        </React.Fragment>
+        </React.Fragment >
     )
 }
 

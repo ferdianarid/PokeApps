@@ -33,6 +33,10 @@
         margin: 32px 0 28px;
     }
     
+    .nav-desktop {
+        display: block;
+    }
+    
     .poke-img {
         width: 500px;
         border-radius: 16px;
