@@ -42,7 +42,7 @@ const App = () => {
 
     const CollapseButton = styled.div`
         padding: 8px;
-        background: ${({ theme }) => theme.body};
+        background: ${({ theme }) => theme.togglerColor};
         color: ${({ theme }) => theme.text};
         border-radius: 8px;
         display: flex;
@@ -62,8 +62,8 @@ const App = () => {
                     <Navbar>
                         <Link to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
                             <Brand>
-                                <img className="pokeball" src={pokeBall} width={36} height={36} alt="pokeball" />
-                                <Heading>POKEAPPS</Heading>
+                                <img className="pokeball" src={pokeBall} width={30} height={30} alt="pokeball" />
+                                <Heading style={{ fontSize: "18px" }}>PokeApps</Heading>
                             </Brand>
                         </Link>
                         <Switcher onClick={themeToggler}>
@@ -76,7 +76,7 @@ const App = () => {
                                     Dark mode</span>}
                         </Switcher>
                         <div className="hamburger">
-                            {open ? <CollapseButton onClick={() => setOpen(false)}><FaTimes size={24} style={{ color: "black" }} /></CollapseButton> : <CollapseButton onClick={() => setOpen(true)}><FaBars size={24} style={{ color: "black" }} /></CollapseButton>}
+                            {open ? <CollapseButton onClick={() => setOpen(false)}><FaTimes size={24} /></CollapseButton> : <CollapseButton onClick={() => setOpen(true)}><FaBars size={24} /></CollapseButton>}
                         </div>
                         <NavigationBar>
                             <SearchField placeholder='Search Pokemon' name="query" />
