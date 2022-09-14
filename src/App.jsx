@@ -1,32 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import styled, { ThemeProvider } from 'styled-components'
-import About from './pages/About'
-import Homepage from './pages/Homepage'
-import PokeDetails from './pages/PokeDetails'
-import GenericNotFound from './pages/GenericNotFound'
-import { Brand } from './components/atoms/Brand'
-import { SearchField } from './components/atoms/Field'
-import { Navbar, NavLink, NavigationBar, MobileNav } from './components/moleculs/Navigation'
-import { lightTheme, darkTheme } from './components/moleculs/Themes'
-import { GlobalStyles } from './components/moleculs/GlobalStyles'
-import { Heading } from './components/atoms/Text'
-import pokeBall from './assets/pokeball.png'
-import Footer from './components/organism/Footer'
-import Moon from './assets/icons/moon.svg'
-import Sun from './assets/icons/sun.svg'
-import PageLayouts from './layouts/PageLayouts'
-import SignIn from './pages/auth/SignIn'
-import SignUp from './pages/auth/SignUp'
-import { OAuthButton } from './components/atoms/Button/OAuthButton'
-import { Switcher } from './components/atoms/Button/Switcher'
-import { OAuthWrapper } from './components/atoms/Wrapper'
-import Speech from './pages/Speech'
-import { FaBars, FaTimes } from 'react-icons/fa'
+import About from '@/pages/About'
+import Homepage from '@/pages/Homepage'
+import PokeDetails from '@/pages/PokeDetails'
+import GenericNotFound from '@/pages/GenericNotFound'
+import { Brand } from '@/components/atoms/Brand'
+import { SearchField } from '@/components/atoms/Field'
+import { Navbar, NavLink, NavigationBar, MobileNav } from '@/components/moleculs/Navigation'
+import { lightTheme, darkTheme } from '@/components/moleculs/Themes'
+import { GlobalStyles } from '@/components/moleculs/GlobalStyles'
+import { Heading } from '@/components/atoms/Text'
+import pokeBall from '@/assets/pokeball.png'
+import Footer from '@/components/organism/Footer'
+import Moon from '@/assets/icons/moon.svg'
+import Sun from '@/assets/icons/sun.svg'
+import PageLayouts from '@/layouts/PageLayouts'
+import SignIn from '@/pages/auth/SignIn'
+import SignUp from '@/pages/auth/SignUp'
+import { OAuthButton } from '@/components/atoms/Button/OAuthButton'
+import { Switcher } from '@/components/atoms/Button/Switcher'
+import { OAuthWrapper } from '@/components/atoms/Wrapper'
+import { CollapseButton } from '@/components/atoms/Button/CollapseButton'
+import { FaArrowUp, FaBars, FaTimes } from 'react-icons/fa'
 
 const App = () => {
     const [query, setQuery] = useState("")
     const [open, setOpen] = useState(false)
+    const [showScrollButton, setShowScrollButton] = useState(false)
 
     const location = useLocation()
 
@@ -40,19 +41,47 @@ const App = () => {
         theme === 'light' ? setTheme('dark') : setTheme('light')
     }
 
-    const CollapseButton = styled.div`
-        padding: 8px;
-        background: ${({ theme }) => theme.togglerColor};
-        color: ${({ theme }) => theme.text};
-        border-radius: 8px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    `
+    const ScrollTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+    }
 
     useEffect(() => {
         setOpen(false)
     }, [location])
+
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 1800) {
+                setShowScrollButton(true)
+            }
+            if (window.scrollY < 300) {
+                setShowScrollButton(false)
+            }
+            setShowTopBtn(false)
+        })
+    }, [window.scrollY])
+
+    const ScrollTopButton = styled.button`
+        border: none;
+        display: flex;
+        padding: 20px;
+        align-items: center;
+        background: #4f5eff;
+        color: #FFF;
+        border-radius: 40px;
+        margin: 20px auto;
+        transition: .2s ease-out;
+        &:hover {
+            cursor: pointer;
+            background: #4150f2;
+        }
+        position: fixed;
+        bottom: 10px;
+        right: 30px;
+    `
 
     return (
         <React.Fragment>
@@ -89,9 +118,6 @@ const App = () => {
                             <Link to="/profile" style={{ textDecoration: "none" }}>
                                 <NavLink>Profile</NavLink>
                             </Link>
-                            <Link to="/speech" style={{ textDecoration: "none" }}>
-                                <NavLink>Speech</NavLink>
-                            </Link>
                             <OAuthWrapper>
                                 <Link to="/signin" style={{ textDecoration: "none" }}>
                                     <OAuthButton>Sign in</OAuthButton>
@@ -113,9 +139,6 @@ const App = () => {
                             <Link to="/profile" style={{ textDecoration: "none" }}>
                                 <NavLink>Profile</NavLink>
                             </Link>
-                            <Link to="/speech" style={{ textDecoration: "none" }}>
-                                <NavLink>Speech</NavLink>
-                            </Link>
                             <OAuthWrapper>
                                 <Link to="/signin" style={{ textDecoration: "none" }}>
                                     <OAuthButton>Sign in</OAuthButton>
@@ -129,12 +152,12 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<Homepage />} />
                         <Route path="about" element={<About />} />
-                        <Route path="speech" element={<Speech />} />
                         <Route path="pokemon/:id" element={<PokeDetails />} />
                         <Route path="signin" element={<SignIn />} />
                         <Route path="signup" element={<SignUp />} />
                         <Route path="*" element={<GenericNotFound />} />
                     </Routes>
+                    {showScrollButton && <ScrollTopButton onClick={ScrollTop}><FaArrowUp size={24} /></ScrollTopButton>}
                     <Footer />
                 </PageLayouts>
             </ThemeProvider>

@@ -56,7 +56,7 @@ const Homepage = () => {
                 <Subheading style={{ marginTop: "-20px" }}>This is pokemon list from pokeapi</Subheading>
                 <CardContainer>
                     {data?.map((item, idx) => (
-                        <PokeCard key={idx + 1} pokemonId={idx + 1} title={item.name} />
+                        <PokeCard key={idx} pokemonId={idx + 1} title={item.name} />
                     ))}
                 </CardContainer>
             </Container>
