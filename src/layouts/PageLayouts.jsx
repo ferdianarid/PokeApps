@@ -1,5 +1,5 @@
 import React from 'react'
-import { PageWrapper } from '../components/atoms/Container'
+import { PageWrapper } from '@/components/atoms/Container'
 
 const PageLayouts = ({ children }) => {
     return (

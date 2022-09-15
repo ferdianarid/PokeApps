@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Subheading } from '../components/atoms/Text'
+import { Heading, Subheading } from '@/components/atoms/Text'
 
 const About = () => {
     const Header = styled.div`

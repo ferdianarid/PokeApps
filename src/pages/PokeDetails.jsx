@@ -2,30 +2,25 @@ import axios from 'axios'
 import styled from 'styled-components'
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import SkillCard from '../components/organism/Cards/SkillCard'
-import { Heading, Subheading } from '../components/atoms/Text'
-import { HeadingContent, PropsValue } from '../components/atoms/Text'
-import { PropsWrapper, AbilityWrapper, DetailWrapper } from '../components/atoms/Wrapper'
-import { AbilityBadge } from '../components/atoms/Badge'
-import SpritesPrev from '../components/organism/Cards/SpritesPrev'
-import FlavorCard from '../components/organism/Cards/FlavorCard'
-import { ValueText } from '../components/atoms/Text'
-import { capitalizeFirstLetter } from '../helper/capitalizeFirstLetter'
+import SkillCard from '@/components/organism/Cards/SkillCard'
+import { Heading, Subheading } from '@/components/atoms/Text'
+import { HeadingContent, PropsValue } from '@/components/atoms/Text'
+import { PropsWrapper, AbilityWrapper, DetailWrapper } from '@/components/atoms/Wrapper'
+import { AbilityBadge } from '@/components/atoms/Badge'
+import SpritesPrev from '@/components/organism/Cards/SpritesPrev'
+import FlavorCard from '@/components/organism/Cards/FlavorCard'
+import { ValueText } from '@/components/atoms/Text'
+import { capitalizeFirstLetter } from '@/helper/capitalizeFirstLetter'
+import { Header } from '@/components/atoms/Container/Header'
+import { DoubleColumn } from '@/components/atoms/Column'
 
 const PokeDetails = () => {
     const location = useLocation()
 
     const [details, setDetails] = useState('')
 
-    const Header = styled.div`
-        margin: 16px 0px;
-        padding: 0px 100px;
-        @media only screen and (max-width: 768px) {
-            padding: 0 20px;
-        }
-    `
     useEffect(() => {
-        axios.get(`https://pokeapi.co/api/v2${location.pathname}`)
+        axios.get(`${process.env.REACT_APP_POKEMON_URL}${location.pathname}`)
             .then((response) => setDetails(response.data))
     }, [location.pathname])
 
@@ -46,16 +41,6 @@ const PokeDetails = () => {
         grid-gap: 20px;
         @media only screen and (max-width: 768px) {
             flex-direction: column;
-        }
-    `
-
-    const DoubleColumn = styled.div`
-        width: 100%;
-        display: grid;
-        grid-template-columns: auto auto;
-        grid-gap: 12px;
-        @media only screen and (max-width: 768px) {
-            grid-template-columns: auto;
         }
     `
 

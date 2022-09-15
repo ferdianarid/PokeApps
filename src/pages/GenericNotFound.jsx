@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container } from '../components/atoms/Container'
-import { Subheading } from '../components/atoms/Text'
-import Pokemon from '../assets/pokemon/pokemon.png'
+import { Container } from '@/components/atoms/Container'
+import { Subheading } from '@/components/atoms/Text'
+import Pokemon from '@/assets/pokemon/pokemon.png'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 

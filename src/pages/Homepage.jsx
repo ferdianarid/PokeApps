@@ -1,15 +1,15 @@
 import React, { useRef } from 'react'
 import useSWR from 'swr'
-import styled from 'styled-components'
 import axios from 'axios'
-import Hero from '../components/templates/Hero'
-import { Heading, Subheading } from '../components/atoms/Text'
-import { Container, CardContainer } from '../components/atoms/Container'
-import PokeCard from '../components/organism/Cards/PokeCard'
-import Pagination from '../components/organism/Pagination'
-import { Columns, DoubleColumn } from '../components/atoms/Column'
-import PokemonImage from '../assets/pokemon/pokebackground.webp'
-import { ButtonAction } from '../components/atoms/Button/ButtonAction'
+import Hero from '@/components/templates/Hero'
+import { Subheading } from '@/components/atoms/Text'
+import { Container, CardContainer } from '@/components/atoms/Container'
+import PokeCard from '@/components/organism/Cards/PokeCard'
+import Pagination from '@/components/organism/Pagination'
+import { Columns, DoubleColumn } from '@/components/atoms/Column'
+import { ButtonAction } from '@/components/atoms/Button/ButtonAction'
+import { SectionHeading, FeedbackSection } from '@/components/moleculs/Section'
+import PokemonImage from '@/assets/pokemon/pokebackground.webp'
 
 const Homepage = () => {
     const PokemonSectionReff = useRef(null)
@@ -18,25 +18,8 @@ const Homepage = () => {
         return await axios.get(url).then((response) => response.data.results)
     }
 
-    const { data, error } = useSWR(() => "https://pokeapi.co/api/v2/pokemon", fetcher)
+    const { data, error } = useSWR(() => process.env.REACT_APP_POKEMON_URL + "/pokemon", fetcher)
 
-    const SectionHeading = styled.h1`
-        font-size: 45px;
-        line-height: 1.3;
-        color: ${({ theme }) => theme.text};
-        margin-bottom: 24px;
-    `
-
-    const FeedbackSection = styled.div`
-        width: 100%;
-        padding: 50px;
-        border-radius: 24px;
-        background: ${({ theme }) => theme.togglerColor};
-        @media only screen and (max-width: 768px) {
-            padding: 50px 20px;
-            margin-top: -100px;
-        }
-    `
     return (
         <React.Fragment>
             <Hero pokeSection={PokemonSectionReff} />

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { OAuthButton } from '../../components/atoms/Button/OAuthButton'
-import { Container } from '../../components/atoms/Container'
-import { Heading, Subheading } from '../../components/atoms/Text'
+import { OAuthButton } from '@/components/atoms/Button/OAuthButton'
+import { Container } from '@/components/atoms/Container'
+import { Heading, Subheading } from '@/components/atoms/Text'
 import { FaGithub, FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa'
 import { useState } from 'react'
-import { AuthButtonAction, Field, FormGroup, Label, SignInForm } from '../../components/organism/Form'
+import { AuthButtonAction, Field, FormGroup, Label, SignInForm } from '@/components/organism/Form'
 
 const SignIn = () => {
     const [typePassword, setTypePassword] = useState("password")
