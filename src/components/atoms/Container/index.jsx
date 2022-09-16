@@ -6,6 +6,7 @@ export const HeroContainer = styled.div`
         padding: 30px 20px;
     }
 `
+
 export const Container = styled.div`
         padding: 100px 100px;
         @media only screen and (max-width: 768px) {

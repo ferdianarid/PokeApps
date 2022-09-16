@@ -24,3 +24,18 @@ export const OAuthWrapper = styled.div`
         align-items: center;
         grid-gap: 12px;
     `
+
+export const HeadingWrapper = styled.div`
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+    `
+
+export const HeroHeight = styled.div`
+        height: 550px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    `
