@@ -60,7 +60,7 @@ const App = () => {
             if (window.scrollY < 300) {
                 setShowScrollButton(false)
             }
-            setShowTopBtn(false)
+            setShowScrollButton(false)
         })
     }, [window.scrollY])
 

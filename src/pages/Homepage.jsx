@@ -18,7 +18,7 @@ const Homepage = () => {
         return await axios.get(url).then((response) => response.data.results)
     }
 
-    const { data, error } = useSWR(() => process.env.REACT_APP_POKEMON_URL + "/pokemon", fetcher)
+    const { data, error } = useSWR(() => `https://pokeapi.co/api/v2/pokemon`, fetcher)
 
     return (
         <React.Fragment>

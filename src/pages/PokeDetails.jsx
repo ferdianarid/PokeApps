@@ -20,7 +20,7 @@ const PokeDetails = () => {
     const [details, setDetails] = useState('')
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_POKEMON_URL}${location.pathname}`)
+        axios.get(`https://pokeapi.co/api/v2${location.pathname}`)
             .then((response) => setDetails(response.data))
     }, [location.pathname])
 
